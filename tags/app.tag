@@ -1,24 +1,28 @@
 <app>
 
-	<h1>MSTU Chatroom</h1>
-
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
-			<input type="text" ref="userName" placeholder="Type Your Name Here">
-			<!-- <button type="button" onclick={ setUserName }>Submit Name</button> -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-10 offset-1">
+				<h1>MSTU Chatroom</h1>
+			</div>
 		</div>
-	</div>
 
-	<div class="row">
-		<div class="col-md-4 col-md-offset-4">
-			<div class="chatLog" ref="chatLog">
-				<message each={ msg in chatLog }></message>
+		<div class="row">
+			<div class="col-8 offset-2 name">
+				<input type="text" ref="userName" placeholder="Type Your Name Here">
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-4 offset-4">
+				<div class="chatLog" ref="chatLog">
+					<message each={ msg in chatLog }></message>
+				</div>
+				<input type="text" ref="messageInput" onkeypress={ sendMsg } placeholder="Enter Message">
+				<button type="button" onclick={ sendMsg }>SEND</button>
 			</div>
 		</div>
 	</div>
-
-	<input type="text" ref="messageInput" onkeypress={ sendMsg } placeholder="Enter Message">
-	<button type="button" onclick={ sendMsg }>SEND</button>
 
 	<script>
 		var that = this;
@@ -43,6 +47,12 @@
 			if (e.type == "keypress" && e.key !== "Enter") {
 				e.preventUpdate = true; // Prevents riot from auto update.
 				return false; // Short-circuits function (function exits here, does not continue.)
+			}
+
+			if (this.refs.userName.value === "") {
+				alert("Please type your name in the box");
+				this.clearInput();
+				return false;
 			}
 
 			var msg = {
@@ -80,19 +90,38 @@
 	<style>
 		:scope {
 			display: block;
-			font-family: Helvetica;
-			font-size: 1em;
+			padding: 10px;
+			font-family: monospace;
+			font-size: 1.3em;
 		}
+
+		h1 {
+			text-align: center;
+			text-transform: uppercase;
+			color: white;
+			border: 2px solid #4A225D;
+			background-color: #4A225D;
+			border-radius: 5px;
+			padding: 10px;
+		}
+
+		.name {
+			text-align: center;
+			padding: 10px;
+		}
+
 		.chatLog {
 			border: 1px solid grey;
 			padding: 1em;
 			margin-bottom: 1em;
 		}
+
 		[ref="messageInput"],
 		button {
 			font-size: 1em;
 			padding: 0.5em;
 		}
+
 		[ref="messageInput"] {
 			width: 50%;
 		}
