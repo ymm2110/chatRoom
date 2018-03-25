@@ -1,0 +1,95 @@
+[debug] [2018-03-25T05:21:19.152Z] ----------------------------------------------------------------------
+[debug] [2018-03-25T05:21:19.154Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-03-25T05:21:19.154Z] CLI Version:   3.17.7
+[debug] [2018-03-25T05:21:19.154Z] Platform:      darwin
+[debug] [2018-03-25T05:21:19.154Z] Node Version:  v8.9.4
+[debug] [2018-03-25T05:21:19.154Z] Time:          Sun Mar 25 2018 01:21:19 GMT-0400 (EDT)
+[debug] [2018-03-25T05:21:19.154Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-25T05:21:19.169Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-03-25T05:21:19.169Z] > authorizing via signed-in user
+[info] 
+     🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥     🔥🔥🔥     🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥     🔥🔥 🔥🔥       🔥🔥     🔥🔥  🔥🔥   🔥🔥  🔥🔥       🔥🔥
+     🔥🔥🔥🔥🔥🔥    🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥   🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥    🔥🔥  🔥🔥       🔥🔥     🔥🔥 🔥🔥     🔥🔥       🔥🔥 🔥🔥
+     🔥🔥       🔥🔥🔥🔥 🔥🔥     🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥     🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Yuntong
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-03-25T05:22:16.420Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2018-03-25T05:22:16.420Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ { refresh_token: '1/70ofl7N-Skv2et1WCNMnoD_AVScHl9zn4uoB0EM3moM',
+  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
+  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
+  grant_type: 'refresh_token',
+  scope: 'email https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
+ Sun Mar 25 2018 01:22:16 GMT-0400 (EDT)
+[debug] [2018-03-25T05:22:16.598Z] <<< HTTP RESPONSE 200
+[debug] [2018-03-25T05:22:16.606Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+  
+ Sun Mar 25 2018 01:22:16 GMT-0400 (EDT)
+[debug] [2018-03-25T05:22:17.114Z] <<< HTTP RESPONSE 200
+[info] i  .firebaserc already has a default project, skipping
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
+[debug] [2018-03-25T05:24:03.275Z] ----------------------------------------------------------------------
+[debug] [2018-03-25T05:24:03.277Z] Command:       /usr/local/bin/node /usr/local/bin/firebase init
+[debug] [2018-03-25T05:24:03.277Z] CLI Version:   3.17.7
+[debug] [2018-03-25T05:24:03.277Z] Platform:      darwin
+[debug] [2018-03-25T05:24:03.277Z] Node Version:  v8.9.4
+[debug] [2018-03-25T05:24:03.277Z] Time:          Sun Mar 25 2018 01:24:03 GMT-0400 (EDT)
+[debug] [2018-03-25T05:24:03.277Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-03-25T05:24:03.288Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase"]
+[debug] [2018-03-25T05:24:03.288Z] > authorizing via signed-in user
+[info] 
+     🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥     🔥🔥🔥     🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥     🔥🔥 🔥🔥       🔥🔥     🔥🔥  🔥🔥   🔥🔥  🔥🔥       🔥🔥
+     🔥🔥🔥🔥🔥🔥    🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥   🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥
+     🔥🔥        🔥🔥  🔥🔥    🔥🔥  🔥🔥       🔥🔥     🔥🔥 🔥🔥     🔥🔥       🔥🔥 🔥🔥
+     🔥🔥       🔥🔥🔥🔥 🔥🔥     🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥🔥🔥  🔥🔥     🔥🔥  🔥🔥🔥🔥🔥🔥  🔥🔥🔥🔥🔥🔥🔥🔥
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/Yuntong
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2018-03-25T05:24:08.537Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects  
+  
+ Sun Mar 25 2018 01:24:08 GMT-0400 (EDT)
+[debug] [2018-03-25T05:24:08.931Z] <<< HTTP RESPONSE 200
+[info] i  .firebaserc already has a default project, skipping
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 

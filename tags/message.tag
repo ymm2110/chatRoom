@@ -1,6 +1,6 @@
 <message>
 
-	<span>{ msg.message }</span>
+	<span>{ msg.name + ":" +msg.message }</span>
 
 	<script>
 		var that = this;

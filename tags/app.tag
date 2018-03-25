@@ -1,11 +1,20 @@
 <app>
 
-	<h1>Welcome to MSTU Chat! [with Firebase]</h1>
-	<a href="../noFirebase">See Non-Firebase Version</a><br><br>
+	<h1>MSTU Chatroom</h1>
 
-	<div class="chatLog" ref="chatLog">
-		<!-- Messages go here: -->
-		<message each={ msg in chatLog }></message>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<input type="text" ref="userName" placeholder="Type Your Name Here">
+			<!-- <button type="button" onclick={ setUserName }>Submit Name</button> -->
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-4 col-md-offset-4">
+			<div class="chatLog" ref="chatLog">
+				<message each={ msg in chatLog }></message>
+			</div>
+		</div>
 	</div>
 
 	<input type="text" ref="messageInput" onkeypress={ sendMsg } placeholder="Enter Message">
@@ -14,14 +23,11 @@
 	<script>
 		var that = this;
 
-		// Global Cached references
-		// See index.html for var database, messagesRef
-
-		// Demonstration Data
+		// Global Cached references See index.html for var database, messagesRef Demonstration Data
 		this.chatLog = []; // Empty Data
 
-		messagesRef.on('value', function(snapshot){
-		  var messagesData = snapshot.val(); // .val() returns to us the raw data object from snapshot
+		messagesRef.on('value', function (snapshot) {
+			var messagesData = snapshot.val(); // .val() returns to us the raw data object from snapshot
 
 			that.chatLog = []; // if we had prior data, clear it so we don't get repeats. You can try removing this line to see what happens.
 
@@ -40,7 +46,8 @@
 			}
 
 			var msg = {
-				message: this.refs.messageInput.value
+				message: this.refs.messageInput.value,
+				name: this.refs.userName.value
 			};
 
 			/***
@@ -53,9 +60,7 @@
 			***/
 
 			messagesRef.push(msg);
-			// Notice the difference between messagesRef.push() vs. this.chatLog.push();
-			// Here, we are using the Firebase push() to push to the database reference.
-			// With that.chatLog.push() we are using the JS Array push() to push directly to the array.
+			// Notice the difference between messagesRef.push() vs. this.chatLog.push(); Here, we are using the Firebase push() to push to the database reference. With that.chatLog.push() we are using the JS Array push() to push directly to the array.
 
 			/***
 				Also notice that we do not that.update() here. All we do is change the state of data on our database.
@@ -83,7 +88,8 @@
 			padding: 1em;
 			margin-bottom: 1em;
 		}
-		[ref="messageInput"], button {
+		[ref="messageInput"],
+		button {
 			font-size: 1em;
 			padding: 0.5em;
 		}
