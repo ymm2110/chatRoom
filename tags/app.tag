@@ -40,18 +40,47 @@
 		// Global Cached references See index.html for var database, messagesRef Demonstration Data
 		this.chatLog = []; // Empty Data
 
-		messagesRef.on('value', function (snapshot) {
-			var messagesData = snapshot.val(); // .val() returns to us the raw data object from snapshot
+		// messagesRef.on('value', function (snapshot) {
+		// 	var messagesData = snapshot.val(); // .val() returns to us the raw data object from snapshot
+    //
+		// 	that.chatLog = []; // if we had prior data, clear it so we don't get repeats. You can try removing this line to see what happens.
+    //
+		// 	// Loop through each obj in messagesData and push each message object into our that.chatLog array
+		// 	for (key in messagesData) {
+		// 		that.chatLog.push(messagesData[key]);
+		// 	}
+    //
+		// 	that.update(); // Manually kick-off the tag update after we get any fresh changed data.
+		// });
 
-			that.chatLog = []; // if we had prior data, clear it so we don't get repeats. You can try removing this line to see what happens.
+			messagesRef.on('child_added', function(snapshot) {
+				console.log(snapshot.key);
+				var id = snapshot.key;
+				var data = snapshot.val();
+				data.id = id;
+				that.chatLog.push(data);
+				that.update();
+			})
 
-			// Loop through each obj in messagesData and push each message object into our that.chatLog array
-			for (key in messagesData) {
-				that.chatLog.push(messagesData[key]);
-			}
+			messagesRef.on('child_removed', function(snapshot) {
+				var id = snapshot.key;
 
-			that.update(); // Manually kick-off the tag update after we get any fresh changed data.
-		});
+				var target;
+				for (let i = 0; i < that.chatLog.length; i++) {
+					if (that.chatLog[i].id === id) {
+						target = that.chatLog[i];
+						break
+					}
+				}
+				var index = that.chatLog.indexOf(target);
+				that.chatLog.splice(index, 1);
+
+				that.update();
+			})
+
+
+
+
 
 		sendMsg(e) {
 			if (e.type == "keypress" && e.key !== "Enter") {
