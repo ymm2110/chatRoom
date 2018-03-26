@@ -8,8 +8,9 @@
 		</div>
 
 		<div class="row">
-			<div class="col-8 offset-2 name">
+			<div if = {name === ""} class="col-8 offset-2 name">
 				<input type="text" ref="userName" placeholder="Type Your Name Here">
+				<button type="button" onclick={ setName }>Submit</button>
 			</div>
 		</div>
 
@@ -26,6 +27,15 @@
 
 	<script>
 		var that = this;
+		this.name = "";
+
+		setName(){
+			if (this.refs.userName.value == ""){
+				alert("Please type your name in the box");
+			} else {
+			name = this.refs.userName.value;
+			}
+		}
 
 		// Global Cached references See index.html for var database, messagesRef Demonstration Data
 		this.chatLog = []; // Empty Data
@@ -49,15 +59,15 @@
 				return false; // Short-circuits function (function exits here, does not continue.)
 			}
 
-			if (this.refs.userName.value === "") {
-				alert("Please type your name in the box");
-				this.clearInput();
-				return false;
-			}
+			// if (this.refs.userName.value === "") {
+			// 	alert("Please type your name in the box");
+			// 	this.clearInput();
+			// 	return false;
+			// }
 
 			var msg = {
 				message: this.refs.messageInput.value,
-				name: this.refs.userName.value
+				name: name
 			};
 
 			/***
