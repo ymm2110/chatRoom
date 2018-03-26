@@ -59,11 +59,11 @@
 				return false; // Short-circuits function (function exits here, does not continue.)
 			}
 
-			// if (this.refs.userName.value === "") {
-			// 	alert("Please type your name in the box");
-			// 	this.clearInput();
-			// 	return false;
-			// }
+			if (this.refs.userName.value === "") {
+				alert("Please type your name in the box");
+				this.clearInput();
+				return false;
+			}
 
 			var msg = {
 				message: this.refs.messageInput.value,
