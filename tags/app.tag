@@ -106,7 +106,7 @@
 				userName: userName,
 			};
 
-			var messageTime = moment().format('LTS');
+			var messageTime = moment().format('lll');
 			msg.messageTime = messageTime;
 			console.log(msg.messageTime);
 
