@@ -1,10 +1,7 @@
 <message>
 
-<<<<<<< HEAD
-	<span>{ msg.name + ": " +msg.message + "   -- " + msg.time}</span>
-=======
+
 	<span>{ msg.name + ": " +msg.message }</span><i class="fa fa-trash-o trash" onclick={delete}></i>
->>>>>>> 699527c24e43f1d1d107ec50f9310c8ef389f6d0
 
 	<script>
 		var that = this;
