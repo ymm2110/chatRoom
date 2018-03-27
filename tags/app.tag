@@ -8,7 +8,7 @@
 		</div>
 
 		<div class="row">
-			<div if = {name === ""} class="col-8 offset-2 name">
+			<div class="col-8 offset-2 name">
 				<input type="text" ref="userName" placeholder="Type Your Name Here">
 				<button type="button" onclick={ setName }>Submit</button>
 			</div>
@@ -88,15 +88,20 @@
 				return false; // Short-circuits function (function exits here, does not continue.)
 			}
 
-			if (this.refs.userName.value === "") {
+			// check if user name is logged.
+			if (name === "") {
 				alert("Please type your name in the box");
 				this.clearInput();
 				return false;
 			}
 
+		  var messageTime = new Date();
+
+
 			var msg = {
 				message: this.refs.messageInput.value,
-				name: name
+				name: name,
+				time: messageTime
 			};
 
 			/***

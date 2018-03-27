@@ -1,5 +1,6 @@
 <message>
 
+
 	<span>{ msg.name + ": " +msg.message }</span><i class="fa fa-trash-o trash" onclick={delete}></i>
 
 	<script>
