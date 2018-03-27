@@ -37,7 +37,6 @@
 	<script>
 		var that = this;
 		this.userName = "";
-		this.messageTime = "";
 		this.chatRoomName = "messages";
 
 		setName(){
@@ -99,13 +98,19 @@
 				return false;
 			}
 
-			messageTime = new Date();
+
+
 
 			var msg = {
 				message: this.refs.messageInput.value,
 				userName: userName,
-				messageTime: messageTime
 			};
+
+			var messageTime = moment().format('LTS');
+			msg.messageTime = messageTime;
+			console.log(msg.messageTime);
+
+
 
 			/***
 				We no longer need to push data directly into our array on the client-side when we create a message object.
