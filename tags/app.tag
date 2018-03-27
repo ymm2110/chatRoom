@@ -20,7 +20,7 @@
 					<message each={ msg in chatLog }></message>
 				</div>
 				<input type="text" ref="messageInput" onkeypress={ sendMsg } placeholder="Enter Message">
-				<button type="button" onclick={ sendMsg }>SEND</button>
+				<button type="button" onclick={ sendMsg } >SEND</button>
 			</div>
 		</div>
 	</div>
@@ -28,6 +28,8 @@
 	<script>
 		var that = this;
 		this.name = "";
+		this.messageTime = "";
+
 
 		setName(){
 			if (this.refs.userName.value == ""){
@@ -39,19 +41,6 @@
 
 		// Global Cached references See index.html for var database, messagesRef Demonstration Data
 		this.chatLog = []; // Empty Data
-
-		// messagesRef.on('value', function (snapshot) {
-		// 	var messagesData = snapshot.val(); // .val() returns to us the raw data object from snapshot
-    //
-		// 	that.chatLog = []; // if we had prior data, clear it so we don't get repeats. You can try removing this line to see what happens.
-    //
-		// 	// Loop through each obj in messagesData and push each message object into our that.chatLog array
-		// 	for (key in messagesData) {
-		// 		that.chatLog.push(messagesData[key]);
-		// 	}
-    //
-		// 	that.update(); // Manually kick-off the tag update after we get any fresh changed data.
-		// });
 
 			messagesRef.on('child_added', function(snapshot) {
 				console.log(snapshot.key);
@@ -80,8 +69,6 @@
 
 
 
-
-
 		sendMsg(e) {
 			if (e.type == "keypress" && e.key !== "Enter") {
 				e.preventUpdate = true; // Prevents riot from auto update.
@@ -95,9 +82,7 @@
 				return false;
 			}
 
-		  var messageTime = new Date();
-
-
+			messageTime = new Date();
 			var msg = {
 				message: this.refs.messageInput.value,
 				name: name,
