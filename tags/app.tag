@@ -15,27 +15,44 @@
 		</div>
 
 		<div class="row">
+			<div class="col-8 offset-2 name">
+				<input type="text" ref="chatRoomName" placeholder="Type A Topic Here to Start a New Chatroom">
+				<button type="button" onclick={ setTopic }>Start</button>
+
+			</div>
+		</div>
+
+
+		<div class="row">
 			<div class="col-4 offset-4">
 				<div class="chatLog" ref="chatLog">
 					<message each={ msg in chatLog }></message>
 				</div>
 				<input type="text" ref="messageInput" onkeypress={ sendMsg } placeholder="Enter Message">
-				<button type="button" onclick={ sendMsg } >SEND</button>
+				<button type="button" onclick={ sendMsg }  >Send</button>
 			</div>
 		</div>
 	</div>
 
 	<script>
 		var that = this;
-		this.name = "";
+		this.userName = "";
 		this.messageTime = "";
-
+		this.chatRoomName = "messages";
 
 		setName(){
 			if (this.refs.userName.value == ""){
 				alert("Please type your name in the box");
 			} else {
-			name = this.refs.userName.value;
+				userName = this.refs.userName.value;
+			}
+		}
+
+		setTopic(){
+			if (this.refs.chatRoomName.value !== ""){
+				chatRoomName = this.refs.chatRoomName.value;
+				messagesRef = database.ref(chatRoomName);
+				console.log(messagesRef);
 			}
 		}
 
@@ -76,17 +93,18 @@
 			}
 
 			// check if user name is logged.
-			if (name === "") {
+			if (userName === "") {
 				alert("Please type your name in the box");
 				this.clearInput();
 				return false;
 			}
 
 			messageTime = new Date();
+
 			var msg = {
 				message: this.refs.messageInput.value,
-				name: name,
-				time: messageTime
+				userName: userName,
+				messageTime: messageTime
 			};
 
 			/***

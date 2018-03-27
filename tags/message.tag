@@ -1,7 +1,7 @@
 <message>
 
 
-	<span>{ msg.name + ": " +msg.message + "   --" +msg.time }</span><i class="fa fa-trash-o trash" onclick={delete}></i>
+	<span>{ msg.userName + ": " +msg.message + "   --" +msg.messageTime }</span><i class="fa fa-trash-o trash" onclick={delete}></i>
 
 	<script>
 		var that = this;
